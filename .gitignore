@@ -1,2 +1,4 @@
 .env
 /NutriChat-Frontend/node_modules
+/NutriChat-Backend/node_modules
+/NutriChat-Backend/.env
