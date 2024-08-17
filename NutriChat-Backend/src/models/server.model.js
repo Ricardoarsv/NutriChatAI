@@ -40,7 +40,7 @@ class Server {
 
   middlewares() {
     // CORS
-    this.app.use(cors({ origin: this.whiteList, credentials: true }));
+    // this.app.use(cors({ origin: this.whiteList, credentials: true }));
 
     // Parsear las respuestas y cuerpos de las peticiones
     this.app.use(express.json());
