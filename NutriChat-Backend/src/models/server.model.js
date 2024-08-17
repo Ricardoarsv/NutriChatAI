@@ -19,7 +19,6 @@ class Server {
   constructor() {
     // Inicialización del servidor
     this.app = express();
-    this.port = process.env.PORT;
 
     // Routes
     this.whiteList = [
@@ -59,7 +58,7 @@ class Server {
       console.log(
         pc.dim("--------------------------------------------------"),
         pc.blue("\n Dineflow app listening on port"),
-        pc.yellow(`${apiUrl}:${this.port} 🚀 \n`),
+        pc.yellow(`${apiUrl} 🚀 \n`),
         pc.green("Press Ctrl+C to quit \n"),
         pc.dim("--------------------------------------------------")
       );
