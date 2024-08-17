@@ -25,6 +25,8 @@ class Server {
     this.whiteList = [
       `${webUrl}`,
       "nutri-chat-kriazeb7j-ricardoarsvs-projects.vercel.app",
+      "https://nutrichat.rickdev.tech",
+      "nutrichat.rickdev.tech",
     ];
 
     // Middlewares
