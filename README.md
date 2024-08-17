@@ -122,11 +122,17 @@ root/
 
 1. **Crea una cuenta**:
    ![Register hint 1](./assets/img/Register1.webp)
-1. **Inicia sesion**:
+2. **Inicia sesion**:
    ![Register hint 1](./assets/img/Register2.webp)
 
-1. **Empieza a chatear**:
+3. **Empieza a chatear**:
    ![Register hint 1](./assets/img/Register3.webp)
+
+4. **Empieza a chatear**:
+   <video width="600" controls>
+     <source src="./assets/videos/Project_Finished.webm" type="video/webm">
+     Your browser does not support the video tag.
+   </video>
 
 ## Scripts
 
