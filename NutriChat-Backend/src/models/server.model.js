@@ -1,57 +1,64 @@
 // Paquetes de Node.js
-const express = require('express')
-const dotenv = require('dotenv')
-const pc = require('picocolors')
-const cors = require('cors')
+const express = require("express");
+const dotenv = require("dotenv");
+const pc = require("picocolors");
+const cors = require("cors");
 
 // Rutas de la API
-// aqui voy a importar las rutas de la API
+const IaRouter = require("../routes/ia.routes");
+const authRouter = require("../routes/auth.routes");
+const messagesRouter = require("../routes/messages.routes");
 
 // Acceso a variables de entorno
-dotenv.config()
+dotenv.config();
 
 class Server {
-  constructor () {
+  constructor() {
     // Inicialización del servidor
-    this.app = express()
-    this.port = process.env.PORT
+    this.app = express();
+    this.port = process.env.PORT;
 
     // Routes
-    this.whiteList = [`http://localhost:${this.port}`]
+    this.whiteList = [`http://localhost:${this.port}`];
 
     // Middlewares
-    this.middlewares()
+    this.middlewares();
 
     // Routes
-    this.routes()
+    this.iaRoutePath = "/api/nutriGPT/getAnswer";
+    this.authRoutePath = "/api/auth";
+    this.messageRoutPath = "/api/messages";
+    this.routes();
   }
 
-  middlewares () {
+  middlewares() {
     // CORS
-    this.app.use(cors({ origin: this.whiteList, credentials: true }))
+    this.app.use(cors({ origin: this.whiteList, credentials: true }));
 
     // Parsear las respuestas y cuerpos de las peticiones
-    this.app.use(express.json())
+    this.app.use(express.json());
 
     // Directorio público
-    this.app.use(express.static('public'))
+    this.app.use(express.static("public"));
   }
 
-  routes () {
-
+  routes() {
+    this.app.use(this.iaRoutePath, IaRouter);
+    this.app.use(this.authRoutePath, authRouter);
+    this.app.use(this.messageRoutPath, messagesRouter);
   }
 
-  listen () {
+  listen() {
     this.app.listen(this.port, () => {
       console.log(
-        pc.dim('--------------------------------------------------'),
-        pc.blue('\n Dineflow app listening on port'),
+        pc.dim("--------------------------------------------------"),
+        pc.blue("\n Dineflow app listening on port"),
         pc.yellow(`http://localhost:${this.port} 🚀 \n`),
-        pc.green('Press Ctrl+C to quit \n'),
-        pc.dim('--------------------------------------------------')
-      )
-    })
+        pc.green("Press Ctrl+C to quit \n"),
+        pc.dim("--------------------------------------------------")
+      );
+    });
   }
 }
 
-module.exports = Server
+module.exports = Server;
