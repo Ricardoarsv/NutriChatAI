@@ -15,8 +15,7 @@ class Auth {
         password
       );
       const user = userCredential.user;
-
-      return { user };
+      return { user: user.uid };
     } catch (error) {
       console.error("Error signing in:", error);
       throw new Error("Sign in failed");

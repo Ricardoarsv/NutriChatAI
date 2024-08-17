@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const ChatBubble = ({ text, sender }) => {
-  const isUser1 = sender === 'user1';
+const ChatBubble = ({ text, userID }) => {
+  const isUser1 = userID != 'NutriGPT';
   return (
     <motion.div
       className={`p-4 m-2 rounded-lg max-w-xs ${

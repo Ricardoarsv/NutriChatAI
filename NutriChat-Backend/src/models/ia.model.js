@@ -18,7 +18,7 @@ class Ia {
       const answer = await NutriGPT(this.question);
       return {
         success: true,
-        msg: answer,
+        msg: answer.message.content,
       };
     } catch (error) {
       console.error("Error getting answer from IA:", error);

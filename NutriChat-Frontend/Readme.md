@@ -19,14 +19,17 @@ root/
 │ │ └── validWords.json  
 │ ├── pages/  
 │ │ └── ChatBot.jsx  
-│ │ └── History.jsx  
+│ │ └── Login.jsx  
+│ │ └── Register.jsx  
 │ ├── UI/  
 │ │ └── alert.modal.jsx  
 │ │ └── ChatBubbles.jsx  
+│ │ └── messages.skeleton.jsx  
 │ ├── utils/  
-│ │ └── getMessages.jsx  
-│ │ └── postMessages.jsx  
-│ │ └── validateMessages.jsx  
+│ │ └── getUser.jsx  
+│ │ └── logoutUser.jsx  
+│ │ └── saveUser.jsx  
+│ │ └── UserContext.jsx  
 │ ├── app.jsx  
 │ ├── index.css  
 │ └── Main.jsx  

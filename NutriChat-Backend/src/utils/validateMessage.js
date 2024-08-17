@@ -9,8 +9,8 @@ function validateMessage(message) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
 
-  // Quitar signos de interrogación
-  messageToValidate = messageToValidate.replace(/[¿?]/g, "");
+  // Quitar signos
+  messageToValidate = messageToValidate.replace(/[¿?!.,;:]/g, "");
 
   // Verificar si el mensaje contiene alguna palabra relacionada a nutrición
   const messageWords = messageToValidate.split(" ");

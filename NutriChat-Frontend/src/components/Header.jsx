@@ -1,9 +1,19 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClockRotateLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
+import logoutUser from '../utils/logoutuser';
 
 export default function Header({ setChatState }) {
+  const handleLogout = () => {
+    try {
+      logoutUser();
+      window.location.reload();
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
+
   return (
     <header className="flex justify-between items-center w-full h-16 px-8 bg-whitePrimary">
       <motion.div
@@ -22,36 +32,23 @@ export default function Header({ setChatState }) {
         />
         <h1 className="ml-2 text-lg font-semibold text-secondary">GundoAI</h1>
       </motion.div>
-      {/* <div className="flex flex-row gap-2">
+      <div className="flex flex-row gap-2">
         <motion.button
           whileHover={{
             scale: 1.09,
             transition: { duration: 1 },
           }}
           whileTap={{ scale: 0.9 }}
+          onClick={handleLogout}
           className="flex flex-row gap-2 items-center rounded-xl p-2 bg-primary"
         >
           <FontAwesomeIcon
             className="text-whitePrimary w-5 h-5"
-            icon={faXmark}
+            icon={faRightFromBracket}
           />
-          <p className="text-whitePrimary">New chat</p>
+          <p className="text-whitePrimary">Logout</p>
         </motion.button>
-        <motion.button
-          whileHover={{
-            scale: 1.09,
-            transition: { duration: 1 },
-          }}
-          whileTap={{ scale: 0.9 }}
-          className="flex flex-row gap-2 items-center rounded-xl p-2 bg-primary"
-        >
-          <FontAwesomeIcon
-            className="text-whitePrimary w-5 h-5"
-            icon={faClockRotateLeft}
-          />
-          <p className="text-whitePrimary">History</p>
-        </motion.button>
-      </div> */}
+      </div>
     </header>
   );
 }

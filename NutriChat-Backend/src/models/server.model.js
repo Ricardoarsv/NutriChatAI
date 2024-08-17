@@ -19,7 +19,7 @@ class Server {
     this.port = process.env.PORT;
 
     // Routes
-    this.whiteList = [`http://localhost:${this.port}`];
+    this.whiteList = [`http://localhost:${this.port}`, "http://localhost:5173"];
 
     // Middlewares
     this.middlewares();

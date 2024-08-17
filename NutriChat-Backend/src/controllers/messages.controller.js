@@ -3,6 +3,7 @@ const Message = require("../models/messages.model");
 class MessagesController {
   // Método para manejar la creación de un nuevo mensaje
   async createMessage(req, res) {
+    console.log("POST messages");
     const { userID, messages } = req.body;
     if (
       !userID ||
@@ -25,6 +26,7 @@ class MessagesController {
 
   // Método para manejar la obtención de mensajes de un usuario específico
   async getMessages(req, res) {
+    console.log("GET messages");
     const { userID } = req.params;
     try {
       const userMessages = await Message.getMessages(userID);
