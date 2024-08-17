@@ -9,6 +9,9 @@ const IaRouter = require("../routes/ia.routes");
 const authRouter = require("../routes/auth.routes");
 const messagesRouter = require("../routes/messages.routes");
 
+// utils
+const { apiUrl, webUrl } = require("../utils/ApiUrl");
+
 // Acceso a variables de entorno
 dotenv.config();
 
@@ -19,7 +22,10 @@ class Server {
     this.port = process.env.PORT;
 
     // Routes
-    this.whiteList = [`http://localhost:${this.port}`, "http://localhost:5173"];
+    this.whiteList = [
+      `${webUrl}`,
+      "nutri-chat-kriazeb7j-ricardoarsvs-projects.vercel.app",
+    ];
 
     // Middlewares
     this.middlewares();
@@ -53,7 +59,7 @@ class Server {
       console.log(
         pc.dim("--------------------------------------------------"),
         pc.blue("\n Dineflow app listening on port"),
-        pc.yellow(`http://localhost:${this.port} 🚀 \n`),
+        pc.yellow(`${apiUrl}:${this.port} 🚀 \n`),
         pc.green("Press Ctrl+C to quit \n"),
         pc.dim("--------------------------------------------------")
       );

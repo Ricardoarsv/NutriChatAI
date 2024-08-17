@@ -1,3 +1,3 @@
 const getAPiUrl = () => {
-  return 'http://nutrichatAPI.rickdev.tech/api';
+  return 'https://nutrichatAPI.rickdev.tech:8080/api';
 };
