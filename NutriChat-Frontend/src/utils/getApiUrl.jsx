@@ -1,4 +1,4 @@
 const getAPiUrl = () => {
-  return 'https://nutrichatAPI.rickdev.tech/api';
+  return 'nutrichatai-production.up.railway.app/api';
 };
 export default getAPiUrl;
