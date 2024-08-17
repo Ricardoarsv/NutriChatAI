@@ -1,4 +1,4 @@
 const getAPiUrl = () => {
-  return 'nutrichatai-production.up.railway.app/api';
+  return 'https://nutrichatai-production.up.railway.app/api';
 };
 export default getAPiUrl;
