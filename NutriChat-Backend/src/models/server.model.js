@@ -26,6 +26,8 @@ class Server {
       "nutri-chat-kriazeb7j-ricardoarsvs-projects.vercel.app",
       "https://nutrichat.rickdev.tech",
       "nutrichat.rickdev.tech",
+      "https://nutrichat.rickdev.tech",
+      "https://nutri-chat-kriazeb7j-ricardoarsvs-projects.vercel.app",
     ];
 
     // Middlewares
@@ -40,7 +42,7 @@ class Server {
 
   middlewares() {
     // CORS
-    // this.app.use(cors({ origin: this.whiteList, credentials: true }));
+    this.app.use(cors({ origin: this.whiteList, credentials: true }));
 
     // Parsear las respuestas y cuerpos de las peticiones
     this.app.use(express.json());
