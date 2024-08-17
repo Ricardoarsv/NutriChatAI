@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../utils/UserContext';
 import { motion } from 'framer-motion';
 import saveUser from '../utils/saveUser';
+import getAPiUrl from '../utils/getApiUrl';
+
 export default function Login() {
   const { setUserID } = React.useContext(UserContext);
+  const apiUrl = getAPiUrl();
 
   const handleSignIn = () => {
-    fetch('http://localhost:8080/api/auth/login', {
+    fetch(`${apiUrl}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

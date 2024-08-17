@@ -7,6 +7,7 @@ export default function ChatInput({
   setMessages,
   setShowAlert,
   setAlertMessage,
+  apiUrl,
 }) {
   const [chatMessage, setChatMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ export default function ChatInput({
 
       // Obtener la respuesta del chatbot
       const chatbotResponse = await sendMessage(
-        'http://localhost:8080/api/nutriGPT/getAnswer/send_question',
+        `${apiUrl}/nutriGPT/getAnswer/send_question`,
         {
           userID,
           question: newMessage.message,
@@ -48,13 +49,10 @@ export default function ChatInput({
       }
 
       // Enviar el mensaje al servidor si la respuesta del chatbot es correcta
-      const messageResponse = await sendMessage(
-        'http://localhost:8080/api/messages/create',
-        {
-          userID,
-          messages: [{ userID, message: newMessage.message }],
-        }
-      );
+      const messageResponse = await sendMessage(`${apiUrl}/messages/create`, {
+        userID,
+        messages: [{ userID, message: newMessage.message }],
+      });
 
       if (messageResponse.error) {
         setAlertMessage(messageResponse.error);

@@ -5,7 +5,7 @@ import AlertModal from '../../UI/alert.modal';
 import getUser from '../../utils/getUser';
 import MessageSkeleton from '../../UI/messages.skeleton';
 
-export default function Chat() {
+export default function Chat({ apiUrl }) {
   const endOfMessagesRef = React.useRef(null);
   const [messages, setMessages] = React.useState([]);
   const [showSkeleton, setShowSkeleton] = React.useState(true);
@@ -37,7 +37,7 @@ export default function Chat() {
 
   React.useEffect(() => {
     if (userID) {
-      fetch(`http://localhost:8080/api/messages/${userID}`, {
+      fetch(`${apiUrl}/messages/${userID}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -106,6 +106,7 @@ export default function Chat() {
         setMessages={setMessages}
         setShowAlert={setShowAlert}
         setAlertMessage={setAlertMessage}
+        apiUrl={apiUrl}
       />
     </section>
   );

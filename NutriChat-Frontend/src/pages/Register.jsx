@@ -3,12 +3,14 @@ import { motion } from 'framer-motion';
 import { UserContext } from '../utils/UserContext';
 import { Link } from 'react-router-dom';
 import saveUser from '../utils/saveUser';
+import getAPiUrl from '../utils/getApiUrl';
 
 export default function Register() {
   const { setUserID } = React.useContext(UserContext);
+  const apiUrl = getAPiUrl();
 
   const handleSignUp = () => {
-    fetch('http://localhost:8080/api/auth/sign_up', {
+    fetch(`${apiUrl}/auth/sign_up`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
