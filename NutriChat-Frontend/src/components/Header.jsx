@@ -3,17 +3,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClockRotateLeft, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { motion } from 'framer-motion';
 
-export default function Header() {
+export default function Header({ setChatState }) {
   return (
     <header className="flex justify-between items-center w-full h-16 px-8 bg-whitePrimary">
-      <div className="flex items-center">
+      <motion.div
+        whileHover={{
+          scale: 1.09,
+          transition: { duration: 1 },
+        }}
+        whileTap={{ scale: 0.9 }}
+        onClick={() => setChatState(false)}
+        className="flex items-center cursor-pointer"
+      >
         <img
           className="w-10 h-10 rounded-full"
           src="https://gundo.app/favicon.ico"
           alt="AI"
         />
         <h1 className="ml-2 text-lg font-semibold text-secondary">GundoAI</h1>
-      </div>
+      </motion.div>
       {/* <div className="flex flex-row gap-2">
         <motion.button
           whileHover={{
